@@ -1,0 +1,5 @@
+This Sample AJAX Application Has two problems that need to be resolved
+
+1. When I delete the Contact , the contact still shows in the list, until I refresh the page or click on delete again
+
+2. The application needs to be expanded to include success and failure elements, do not know how to invoke a failure element, hence that code is not present
