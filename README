@@ -2,4 +2,10 @@ This Sample AJAX Application Has two problems that need to be resolved
 
 1. When I delete the Contact , the contact still shows in the list, until I refresh the page or click on delete again
 
-2. The application needs to be expanded to include success and failure elements, do not know how to invoke a failure element, hence that code is not present
+   I am very much thankful to Jeff Brown, he solved this problem in minutes by doing flush while deleting the contact.
+   I wasted countless hours figuring it out.
+
+
+2. Create contact uses g:formRemote, to submit the data and it works great, Question is if there is an error
+   how do we bounce back it to the user.
+   As on completion we need to hide the contact form
