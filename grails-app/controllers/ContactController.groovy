@@ -114,7 +114,7 @@ class ContactController {
     def ajaxdelete = {
         log.debug("MARK, DELETED SOMETHING FOR YOUR")
         def contact = Contact.get( params.id )
-        contact?.delete()
+        contact?.delete(flush: true)
         if(!params.max) params.max = 10
         log.debug("Contact Deleted Succesfuly")
         render(template:"contact", model:[contactList:Contact.list(params)])
