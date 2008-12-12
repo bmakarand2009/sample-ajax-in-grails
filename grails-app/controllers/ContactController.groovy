@@ -6,7 +6,7 @@ class ContactController {
     def allowedMethods = [delete:'POST', save:'POST', update:'POST']
 
 
-     def addShowContact = {
+    def addShowContact = {
         def contact = Contact.get(params.contactId)
         contact.addToAddresses(name:params.address)
         contact.save()
@@ -17,12 +17,12 @@ class ContactController {
         log.debug("MARK lets see if You Got the Params")
         def contact = new Contact(params)
         if(!contact.hasErrors() && contact.save(flush:true)) {
-             render(template:"contact", model:[contactList:Contact.list()])
+            render(template:"contact", model:[contactList:Contact.list()])
         } else {
             log.debug("There was a error MARK, Sending ERROR STATUS")
             response.status = response.SC_INTERNAL_SERVER_ERROR // conflictrender "Invalid Test, conflicts with existing ID"
             render(template: 'addContactError', model:[contact: contact])
-       }
+        }
     }
  
     def list = {
@@ -105,14 +105,27 @@ class ContactController {
     def ajaxsave = {
         def contact = new Contact(params)
         if(!contact.hasErrors() && contact.save()) {
-             render(template:"createcontact", model:[contact:contact])
+            render(template:"/shared/createcontact", model:[contact:contact])
         }else {
             //render(template:"errorcontact")
             log.debug("There was a error MARK, Sending ERROR STATUS")
-//            response.status = response.SC_INTERNAL_SERVER_ERROR // conflictrender "Invalid Test, conflicts with existing ID"
-//            render(error: [code: 500, message:"Plese Try Again, Error Occured"])
-            render(view:'create',model:[contact:contact])
+            response.status = response.SC_INTERNAL_SERVER_ERROR // conflictrender "Invalid Test, conflicts with existing ID"
+            render(template: '/shared/errorcontact', model:[contact: contact])
         }
+    }
+    
+
+    def ajaxsamplesave = {
+        def contact = new Contact(params)
+        if(!contact.hasErrors() && contact.save()) {
+            render(template:"/shared/createcontact", model:[contact:contact])
+        }else {
+            //render(template:"errorcontact")
+            log.debug("There was a error MARK, Sending ERROR STATUS")
+            response.status = response.SC_INTERNAL_SERVER_ERROR // conflictrender "Invalid Test, conflicts with existing ID"
+            render(template: '/shared/errorcontact', model:[contact: contact])
+        }
+        
     }
 
     def ajaxdelete = {
