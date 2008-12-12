@@ -28,7 +28,7 @@
 
       </ul>
       <p>
-         <g:formRemote url="[action:'addContact']" update="contactsElement" name="addContacts">
+         <g:formRemote url="[action:'addContact']" update="[success: 'contactsElement', failure: 'errorElement']" name="addContacts" onSuccess="Element.update('errorElement', '')">
 
 <table>
                     <thead>

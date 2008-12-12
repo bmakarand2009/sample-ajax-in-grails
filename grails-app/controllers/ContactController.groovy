@@ -16,11 +16,15 @@ class ContactController {
     def addContact = {
         log.debug("MARK lets see if You Got the Params")
         def contact = new Contact(params)
-        log.debug(contact)
-        contact?.save()
-        if(!params.max) params.max = 10
-        render(template:"contact", model:[contactList:Contact.list(params)])
+        if(!contact.hasErrors() && contact.save(flush:true)) {
+             render(template:"contact", model:[contactList:Contact.list()])
+        } else {
+            log.debug("There was a error MARK, Sending ERROR STATUS")
+            response.status = response.SC_INTERNAL_SERVER_ERROR // conflictrender "Invalid Test, conflicts with existing ID"
+            render(template: 'addContactError', model:[contact: contact])
+       }
     }
+ 
     def list = {
         if(!params.max) params.max = 10
         [ contactList: Contact.list( params ) ]
