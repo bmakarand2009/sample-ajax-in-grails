@@ -1,0 +1,1 @@
+<a href="javascript:void(0);" onclick="hidePhoneLabel('${contact.id}')">${contact.phone}</a>

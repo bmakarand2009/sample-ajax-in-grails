@@ -9,3 +9,6 @@ This Sample AJAX Application Has two problems that need to be resolved
 2. Create contact uses g:formRemote, to submit the data and it works great, Question is if there is an error
    how do we bounce back it to the user.
    As on completion we need to hide the contact form
+
+
+?? How to use the templates in the Shared folder in the Contact/list.gsp
