@@ -9,7 +9,8 @@
     <div class="nav">
       <span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">Home</a></span>
       <span class="menuButton"><g:link class="create" action="create">New Contact</g:link></span>
-      <span class="menuButton"><g:link class="create" url="../sample.gsp"> Sample Contact</g:link></span>
+      <span class="menuButton"><g:link class="create" url="../sample.gsp"> Outside Create Contact</g:link></span>
+      <span class="menuButton"><g:link class="create" action="samplereport"> Sample Ajax Report</g:link></span>
     </div>
     <div class="body">
       <h1>Contact List</h1>

@@ -6,6 +6,12 @@ class ContactController {
     def allowedMethods = [delete:'POST', save:'POST', update:'POST']
 
 
+    def updatePhone = {
+         def contact = Contact.get(params.contactId)
+         contact.phone = params.phone
+         contact.save()
+         render(template:'updatephone', model:[contact:contact])
+    }
     def addShowContact = {
         def contact = Contact.get(params.contactId)
         contact.addToAddresses(name:params.address)
@@ -30,6 +36,10 @@ class ContactController {
         [ contactList: Contact.list( params ) ]
     }
 
+    def samplereport = {
+        if(!params.max) params.max = 10
+        [ contactList: Contact.list( params ) ]
+    }
     def show = {
         def contact = Contact.get( params.id )
 
