@@ -3,9 +3,14 @@
         <title><g:layoutTitle default="Grails" /></title>
         <link rel="stylesheet" href="${createLinkTo(dir:'css',file:'main.css')}" />
         <link rel="shortcut icon" href="${createLinkTo(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
-        <g:layoutHead />
         <g:javascript library="scriptaculous" />
-        <g:javascript library="application" />				
+        <g:javascript library="application" />
+        <g:javascript library="jquery-1.2.6.min" />
+        <g:javascript>
+           var $j = jQuery.noConflict();
+        </g:javascript>
+        <g:layoutHead />
+        
     </head>
     <body>
         <div id="spinner" class="spinner" style="display:none;">

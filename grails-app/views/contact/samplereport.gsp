@@ -10,6 +10,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="layout" content="main" />
     <title>Contact List</title>
+    <g:javascript>
+      $j(document).ready(function() {
+        $j('button.alert').click(function() {
+          alert('this is an alert message');
+        });
+      });
+    </g:javascript>
     <script type="text/javascript">
       function hidePhoneLabel(cid){
         Element.show("taPhone"+cid);
@@ -20,6 +27,8 @@
         Element.show("labelphone"+cid)
       }
     </script>
+    
+
   </head>
   <body>
     <p>Below is a list of Contacts you have :</p>
@@ -69,6 +78,11 @@
       <div class="paginateButtons">
         <g:paginate total="${Contact.count()}" />
       </div>
+    </div>
+
+ <button class="alert">JQuery Alert!</button>
+    <div id="sample">
+        This is sample code that needs to be toggled
     </div>
 
   </body>
