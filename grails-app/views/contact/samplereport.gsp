@@ -9,11 +9,11 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="layout" content="main" />
-    <title>Contact List</title>
+    <title>Contact List With InLine AJAX Editing</title>
     <g:javascript>
       $j(document).ready(function() {
         $j('button.alert').click(function() {
-          alert('this is an alert message');
+          alert('Hello! I am JQuery, and I run smoothly with Prototype ,ScriptAculo Check more about me on the Create Contact Page');
         });
       });
     </g:javascript>
@@ -33,7 +33,7 @@
   <body>
     <p>Below is a list of Contacts you have :</p>
     <div class="body">
-      <h1>Contacts List</h1>
+      <h1>Contact List With InLine AJAX Editing</h1>
       <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
       </g:if>
@@ -53,7 +53,7 @@
             <g:each in="${contactList}" status="i" var="contact">
               <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                <td><g:link action="show" id="${contact.id}">${fieldValue(bean:contact, field:'id')}</g:link></td>
+                <td><g:link action="show" params="[contactName: contact.name.encodeAsContactName()]">${fieldValue(bean:contact, field:'id')}</g:link></td>
 
                 <td>${fieldValue(bean:contact, field:'name')}</td>
                 <td>
@@ -82,7 +82,7 @@
 
  <button class="alert">JQuery Alert!</button>
     <div id="sample">
-        This is sample code that needs to be toggled
+        This Button Demostrates the JQuery Script Running
     </div>
 
   </body>

@@ -26,7 +26,7 @@
       <span class="menuButton"><g:link class="list" action="list">Contact List</g:link></span>
     </div>
     <div class="body">
-      <h1>Create Contact</h1>
+      <h1>Create Contact With JQuery Validator Plugin to Validate Form</h1>
       <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
       </g:if>
@@ -76,7 +76,7 @@
                     <label for="phone">Phone:</label>
                   </td>
                   <td valign="top" class="value ${hasErrors(bean:contact,field:'phone','errors')}">
-                    <input type="text" id="phone" name="phone" value="${fieldValue(bean:contact,field:'phone')}" class="required phone" />
+                    <em>*</em><input type="text" id="phone" name="phone" value="${fieldValue(bean:contact,field:'phone')}" class="required phone" />
                   </td>
                 </tr>
 
