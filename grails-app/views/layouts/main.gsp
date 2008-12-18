@@ -9,6 +9,7 @@
         <g:javascript>
            var $j = jQuery.noConflict();
         </g:javascript>
+        <g:javascript library="jquery.validate"/>
         <g:layoutHead />
         
     </head>

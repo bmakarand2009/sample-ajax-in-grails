@@ -10,7 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="layout" content="main" />
     <title>Sample Form With Explicit Controller specified</title>
-    <g:javascript library="prototype" />
+    
   </head>
   <body>
     <h1>This demostrated the ability of GRAILS to Invoice AJAX on a form from Outside the controller</h1>

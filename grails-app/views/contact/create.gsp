@@ -6,11 +6,19 @@
     <meta name="layout" content="main" />
     <title>Create Contact</title>
     <g:javascript library="prototype" />
+<style type="text/css">
+  em { font-weight: bold; padding-right: 1em; vertical-align: top; }
+</style>
   <script type="text/javascript">
       function hidecontactform(){
         Element.hide('mycform');
       }
     </script>
+  <g:javascript>
+      $j(document).ready(function() {
+          $j("#commentForm").validate();
+      });
+    </g:javascript>
   </head>
   <body>
     <div class="nav">
@@ -38,7 +46,8 @@
       </div>
 
       <div id="mycform">
-        <g:formRemote url="[action:'ajaxsave']" update="[success:'contactsElement', failure:'errorElement']" name="addContact" onSuccess="hidecontactform()">
+        <g:formRemote id="commentForm" url="[action:'ajaxsave']" update="[success:'contactsElement', failure:'errorElement']" name="addContact" onSuccess="hidecontactform()">
+         <fieldset>
           <div class="dialog">
             <table>
               <tbody>
@@ -48,7 +57,8 @@
                     <label for="name">Name:</label>
                   </td>
                   <td valign="top" class="value ${hasErrors(bean:contact,field:'name','errors')}">
-                    <input type="text" maxlength="20" id="name" name="name" value="${fieldValue(bean:contact,field:'name')}"/>
+                    <em>*</em> <input type="text" maxlength="20" id="name" name="name" value="${fieldValue(bean:contact,field:'name')}"  class="required" minlength="2" />
+
                   </td>
                 </tr>
 
@@ -57,7 +67,7 @@
                     <label for="email">Email:</label>
                   </td>
                   <td valign="top" class="value ${hasErrors(bean:contact,field:'email','errors')}">
-                    <input type="text" id="email" name="email" value="${fieldValue(bean:contact,field:'email')}"/>
+                    <em>*</em><input type="text" id="email" name="email" value="${fieldValue(bean:contact,field:'email')}" class="required email"/>
                   </td>
                 </tr>
 
@@ -66,7 +76,7 @@
                     <label for="phone">Phone:</label>
                   </td>
                   <td valign="top" class="value ${hasErrors(bean:contact,field:'phone','errors')}">
-                    <input type="text" id="phone" name="phone" value="${fieldValue(bean:contact,field:'phone')}"/>
+                    <input type="text" id="phone" name="phone" value="${fieldValue(bean:contact,field:'phone')}" class="required phone" />
                   </td>
                 </tr>
 
@@ -76,9 +86,9 @@
           <div class="buttons">
             <span class="button"><input class="save" type="submit" value="Create" /></span>
           </div>
-        </g:formRemote>
+       </fieldset>
+       </g:formRemote>
       </div>
     </div>
-     
   </body>
 </html>
