@@ -46,7 +46,7 @@
       </div>
 
       <div id="mycform">
-        <g:formRemote id="commentForm" url="[action:'ajaxsave']" update="[success:'contactsElement', failure:'errorElement']" name="addContact" onSuccess="hidecontactform()">
+        <g:formRemote id="commentForm" url="[action:'ajaxsave']" update="[success:'contactsElement', failure:'errorElement']" name="addContact" onSuccess="Element.update('errorElement', ''); hidecontactform();">
          <fieldset>
           <div class="dialog">
             <table>
