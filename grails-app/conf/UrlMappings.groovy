@@ -5,6 +5,9 @@ class UrlMappings {
 			 // apply constraints here
 		  }
 	  }
+	  
+	  "/showContact/$contactName"(controller: 'contact', action: 'show')
+	  
 	  "500"(view:'/error')
 	}
 }

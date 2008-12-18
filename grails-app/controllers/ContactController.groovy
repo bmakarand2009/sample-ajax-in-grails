@@ -40,14 +40,24 @@ class ContactController {
         if(!params.max) params.max = 10
         [ contactList: Contact.list( params ) ]
     }
+    
     def show = {
-        def contact = Contact.get( params.id )
+        if(!params.contactName) {
+           def msg = 'No contactName request parameter was found'
+           log.error msg
+           flash.message = msg
+           redirect action: list
+        } else {
+            def name = params.contactName.decodeContactName()
+            def contact = Contact.findByName(name)
 
-        if(!contact) {
-            flash.message = "Contact not found with id ${params.id}"
-            redirect(action:list)
+            if(!contact) {
+                flash.message = "Contact not found with name ${name}"
+                redirect(action:list)
+            } else { 
+                return [ contact : contact ]
+            }
         }
-        else { return [ contact : contact ] }
     }
 
     def delete = {
@@ -83,7 +93,7 @@ class ContactController {
             contact.properties = params
             if(!contact.hasErrors() && contact.save()) {
                 flash.message = "Contact ${params.id} updated"
-                redirect(action:show,id:contact.id)
+                redirect(action:show, params:[contactName: contact.name.encodeAsContactName()])
             }
             else {
                 render(view:'edit',model:[contact:contact])

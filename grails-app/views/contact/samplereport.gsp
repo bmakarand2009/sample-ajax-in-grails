@@ -53,7 +53,7 @@
             <g:each in="${contactList}" status="i" var="contact">
               <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                <td><g:link action="show" id="${contact.id}">${fieldValue(bean:contact, field:'id')}</g:link></td>
+                <td><g:link action="show" params="[contactName: contact.name.encodeAsContactName()]">${fieldValue(bean:contact, field:'id')}</g:link></td>
 
                 <td>${fieldValue(bean:contact, field:'name')}</td>
                 <td>
