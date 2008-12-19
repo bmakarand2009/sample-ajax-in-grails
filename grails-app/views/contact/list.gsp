@@ -4,6 +4,7 @@
     <meta name="layout" content="main" />
     <title>Contact List</title>
     <g:javascript library="prototype" />
+    <gui:resources components="['dialog']" mode='raw'/>
   </head>
   <body>
     <div class="nav">

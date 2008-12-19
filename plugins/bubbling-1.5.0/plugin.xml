@@ -1,0 +1,11 @@
+<plugin name='bubbling' version='1.5.0'>
+  <author>Matthew Taylor</author>
+  <authorEmail>matthew@g2one.com</authorEmail>
+  <title>Bubbling Library YUI Extension</title>
+  <description>Provides integration with the Bubbling Library YUI extension.
+</description>
+  <documentation>http://grails.org/Bubbling+Plugin</documentation>
+  <resources>
+    <resource>BubblingTagLib</resource>
+  </resources>
+</plugin>

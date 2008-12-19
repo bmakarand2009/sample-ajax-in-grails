@@ -1,0 +1,24 @@
+<plugin name='grails-ui' version='1.0.2-SNAPSHOT'>
+  <author>Matthew Taylor</author>
+  <authorEmail>rhyolight@gmail.com</authorEmail>
+  <title>Grails UI</title>
+  <description>
+Provides a standard UI tag library for ajaxy widgets using YUI.
+</description>
+  <documentation>http://grails.org/GrailsUI+Plugin</documentation>
+  <resources>
+    <resource>BootStrap</resource>
+    <resource>DataSource</resource>
+    <resource>GrailsUIConfig</resource>
+    <resource>UrlMappings</resource>
+    <resource>DatePickerService</resource>
+    <resource>GrailsUITagLibService</resource>
+    <resource>ResourcesTagLibService</resource>
+    <resource>DialogTagLib</resource>
+    <resource>DisplayTagLib</resource>
+    <resource>DragAndDropTagLib</resource>
+    <resource>InputTagLib</resource>
+    <resource>ResourcesTagLib</resource>
+    <resource>TabTagLib</resource>
+  </resources>
+</plugin>
