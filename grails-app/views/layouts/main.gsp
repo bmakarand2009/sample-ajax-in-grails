@@ -13,7 +13,7 @@
         <g:layoutHead />
         
     </head>
-    <body>
+    <body class='yui-skin-sam'>
         <div id="spinner" class="spinner" style="display:none;">
             <img src="${createLinkTo(dir:'images',file:'spinner.gif')}" alt="Spinner" />
         </div>	
