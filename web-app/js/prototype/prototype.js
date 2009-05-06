@@ -1328,8 +1328,10 @@ Ajax.Request = Class.create(Ajax.Base, {
     }
 
     if (state == 'Complete') {
+        Ajax.Responders.dispatch('on' + response.status, this, response, response.headerJSON);
+        Ajax.Responders.dispatch('on' + (this.success() ? 'Success' : 'Failure'), this, response, response.headerJSON);
       // avoid memory leak in MSIE: clean up
-      this.transport.onreadystatechange = Prototype.emptyFunction;
+      //this.transport.onreadystatechange = Prototype.emptyFunction;
     }
   },
 
